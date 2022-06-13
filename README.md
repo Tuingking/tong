@@ -1,23 +1,25 @@
-# Igo CLI
+# Tong
 
-Igo CLI is a command-line tool facilitating development of Igo-based application.
+<img src="tong.png" alt="tong.png" width="150"/>
 
-## Requirements
+Tong is a command-line tool facilitating development of gotong-based application.
 
-* Go version >= 1.13
 
 ## Installation
 
 ```sh
-go install github.com/Tuingking/igo@latest
+go install github.com/Tuingking/tong@latest
 ```
 
 ## Basic commands
 
-Igo provides a variety of commands which can be helpful at various stages of development. The top level commands include:
+Tong provides a variety of commands which can be helpful at various stages of development. The top level commands include:
 
 ```
-    version     Prints the current Igo version
-    migrate     Runs database migrations
-    api         Creates a Igo API application
+    version     Prints the current tong version
+    kafka       Start kafka zookeeper and broker
+    sql
+        migrate     Runs database migrations
+        ddl         Generate MySQL DDL query from go struct
+        find-field  Find field in database table
 ```

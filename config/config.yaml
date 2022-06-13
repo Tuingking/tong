@@ -1,0 +1,10 @@
+version: "v0.0.1"
+env: "prod"
+kafka:
+  zookeeperconfigfile: "$HOME/kafka/config/zookeeper.properties"
+  brokerconfigfile: "$HOME/kafka/config/server.properties"
+mysql:
+  username: "root"
+  password: "password"
+  hostport: "localhost:3306"
+  dbname: ""
