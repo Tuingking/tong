@@ -20,8 +20,13 @@ Tong provides a variety of commands which can be helpful at various stages of de
     kafka       Start kafka zookeeper and broker
     sql         MySQL related utility command
     split-file  Split huge `csv` or `tsv` file into multiple files
+    app         Create GoTong Application
+    
+    # gcs
+    list        Get list of files in GCS bucket
+    upload      Upload file to GCS
 
-    # tong sql
+    # sql
     migrate     Runs database migrations
     ddl         Generate MySQL DDL query from go struct
     find-field  Find field in database table        

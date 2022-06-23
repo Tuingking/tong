@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "tk-dev-micro",
+  "private_key_id": "71a89e645c4210623a331e2f63ae05b56c6bb7f9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCsCbvdM5Bqxuy5\nwOab0kn8tDR7pqxlFxW2VhQbglEh32zVXpynTspZPMni0xzQbfhnFwCZkaObS49o\nfMHW7NF3AT/rNRaypzutkOzFUeSKHa0UjCxFMDN1PSmtapWleqJ9bYFFT0hPg044\nagdokB3B7QDLdCfx2pEJtnbf4tleh+OgI18UOmYL85+DsXKdfkQytmjnN6TGChR2\nfzu90JHbLR/N8pWLGVTkuINt0zAPULQZ4Wo1xbLF+myfxLn25oTFwslFnoht/Zq/\nmf6nWW/WwFLpPPEYkm/YnaNwCNlygpn3wg1RvAmKmmUxIJ13VHYZIY4ZL0/C/+Wj\nR2kOJkaZAgMBAAECggEARKnZ5k6HTGa64uSf5f9HcmnGLLf4RJyzGMRAYD5h/V/8\nQyjw40HqNzWw6iwSawoJQ7QFlEVxhDDjOvPYNdztOU8xYMIeng1rHzohlhu6WHnB\ns9rCbJbxYtCXitRoh9RreB41oyEinkGs/Y0sCcrDZbwfPhTNQJVYoATIa1FSKozv\nKK+I9rbu5NOkYIQojLpgjg0nCOI0W53TkbzHAmXABkQCNM381gSDSarLARYuptC4\n66WeIKzBPLeEDhaCFb4sz1bnCxCPb4sis+aMvYUJv50BOG53+aJ7mQ2Y3g4UnhaF\nyTDYr5wbCfAw4cdRNkiCdSiXM/0Am97QxlBDuSWvlQKBgQDuQR/2v8Ufsoxk/2xf\nucHP2nnEqCIbNU5R1NswcvFMl4eTL1t9YU+HcCtiyX2K/lfQtsoBJKJyBx1QF+I8\nxl6rVZ/u0UpWx0O69IRCv4KhsKvPR4Rb6FOOwlbxppwmiuiDZK25b0mnR6HO9Q/u\nQpSLCV4mH8nwG4930GH8HhXt0wKBgQC42goiei2tMacbUGImhgabtDpwS9+bu10y\nKL9pRByVE9isGLOPBGX4u1wd/aY+Zm3bHQfK4DuiIcYsPi7Eg+JsU7AgL//iI+Wc\nMZoRe6K0xjpmyPXbBKFJKsczBLwTN6seb7PqplEzCeQEJ0GFmu3j+p9vaB1sVFzM\ntUK3I6C6YwKBgQDjMvdoNjekon9/UJPoNRu9OnokLrFXgN3O60yaRwIUJ+wBT4fP\naJyOa0j0S3CMuz7CqYy4ylaepmotlpkHm6Nrf5ukAbECT8Mm5UW64SWRSwiMAYcW\nndYQrQJ8LoV5u70+jyObUaTLAGQtF0S50IQWkjhV4rqPXbjSaMUHxyjiQQKBgQCe\nAiMvnWh15z+EZY3AiEgVyFU7sF+PavUa7yHPBV25QKGxWdwCoCvaFa2EJVF5fWzi\nI0qJ7GqNCHmxT+YCLQnatx6SJPWBhFW80dl0oE5QYDGDsrwVXzvOozZrMdziQG+R\nMMKGDWzTR90Uf8nOPsSiX5TxUfn0o5g/k6FXkqjNKQKBgQCEjz0XKpa6kUIPvQ/4\nYS3tXLE/YaPJCccPnDtoEUgAJnbHkyClKwwL/BGGUQQhxMnpV53Wy5tZ01ACQx99\ncNIXGCLOpkCVpjDOzUAK7uQbBljsIqHp7ijgeNU5OGSoJP7Ih2PgOi5MQxm1Tacf\neOj1KS+D7K2BPUzkaGayXsxZSg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "gke-app-jade-be-http@tk-dev-micro.iam.gserviceaccount.com",
+  "client_id": "109131391306082070649",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gke-app-jade-be-http%40tk-dev-micro.iam.gserviceaccount.com"
+}
