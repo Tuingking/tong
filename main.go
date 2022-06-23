@@ -4,6 +4,7 @@ import (
 	"log"
 
 	"github.com/Tuingking/tong/command/kafka"
+	splitfile "github.com/Tuingking/tong/command/split-file"
 	"github.com/Tuingking/tong/command/sql"
 	"github.com/Tuingking/tong/command/version"
 	"github.com/Tuingking/tong/config"
@@ -22,10 +23,12 @@ var rootCmd = &cobra.Command{
 
 func init() {
 	cfg := config.Init()
+	setVersion(cfg.Version)
 
 	rootCmd.AddCommand(version.NewCmd(cfg))
 	rootCmd.AddCommand(kafka.NewCmd(cfg))
 	rootCmd.AddCommand(sql.NewCmd(cfg))
+	rootCmd.AddCommand(splitfile.NewCmd(cfg))
 }
 
 func main() {
@@ -33,4 +36,8 @@ func main() {
 	if err := rootCmd.Execute(); err != nil {
 		log.Fatal(err)
 	}
+}
+
+func setVersion(v string) {
+	ver = v
 }

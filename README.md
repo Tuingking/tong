@@ -18,8 +18,11 @@ Tong provides a variety of commands which can be helpful at various stages of de
 ```
     version     Prints the current tong version
     kafka       Start kafka zookeeper and broker
-    sql
-        migrate     Runs database migrations
-        ddl         Generate MySQL DDL query from go struct
-        find-field  Find field in database table
+    sql         MySQL related utility command
+    split-file  Split huge `csv` or `tsv` file into multiple files
+
+    # tong sql
+    migrate     Runs database migrations
+    ddl         Generate MySQL DDL query from go struct
+    find-field  Find field in database table        
 ```

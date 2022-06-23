@@ -9,11 +9,11 @@ import (
 	"go.uber.org/zap"
 )
 
-const howToUse = `tong sql find-field -f [PATH_TO_GO_FILE]`
+const howToUse = `tong sql find-field -f [FIELD_NAME]`
 
 var (
 	// flag
-	name string
+	fieldName string
 )
 
 var Cmd = &cobra.Command{
@@ -25,11 +25,11 @@ var Cmd = &cobra.Command{
 }
 
 func init() {
-	Cmd.PersistentFlags().StringVarP(&name, "name", "n", "", "field name to search")
+	Cmd.PersistentFlags().StringVarP(&fieldName, "field", "f", "", "field name to search")
 }
 
 func runE(cmd *cobra.Command, args []string) error {
-	return findField(name)
+	return findField(fieldName)
 }
 
 func findField(name string) error {
