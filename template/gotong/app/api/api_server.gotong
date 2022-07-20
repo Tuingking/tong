@@ -1,0 +1,73 @@
+package api
+
+import (
+	"context"
+	"net/http"
+	"os"
+	"os/signal"
+	"syscall"
+	"time"
+
+	"{{.packageName}}/pkg/logger"
+	"go.uber.org/zap"
+)
+
+type Server interface {
+	Start()
+}
+
+type server struct {
+	opt    Option
+	server http.Server
+}
+
+type Option struct {
+	Address      string
+	ReadTimeout  time.Duration
+	WriteTimeout time.Duration
+}
+
+func NewServer(opt Option) Server {
+	apiHandler := NewAPI()
+
+	return &server{
+		opt: opt,
+		server: http.Server{
+			Addr:         opt.Address,
+			ReadTimeout:  opt.ReadTimeout,
+			WriteTimeout: opt.WriteTimeout,
+			Handler:      router(apiHandler),
+		},
+	}
+}
+
+func (s *server) Start() {
+	done := make(chan struct{})
+
+	go s.shutdownGracefully(done)
+
+	if err := s.server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+		logger.Logger.Fatal("failed listen and serve", zap.Error(err))
+	}
+
+	<-done // wait till server is shutdown gracefully
+
+	logger.Logger.Info("HTTP server shutdown gracefully 😁😁😁")
+}
+
+func (s *server) shutdownGracefully(done chan struct{}) {
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, os.Interrupt, syscall.SIGTERM, syscall.SIGHUP)
+
+	<-quit // wait for any os signal
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	if err := s.server.Shutdown(ctx); err != nil {
+		logger.Logger.Fatal("failed to shutdown server", zap.Error(err))
+		return
+	}
+
+	close(done)
+}

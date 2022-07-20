@@ -3,17 +3,18 @@ package list
 import (
 	"context"
 	"fmt"
-	"path"
-	"runtime"
+	"log"
 
 	"cloud.google.com/go/storage"
-	"github.com/Tuingking/tong/config"
 	"github.com/spf13/cobra"
+	"github.com/tuingking/tong/config"
+	"github.com/tuingking/tong/pkg/gcs"
 	"google.golang.org/api/iterator"
-	"google.golang.org/api/option"
 )
 
 var (
+	client *storage.Client
+
 	// flag
 	bucket string // GCS bucket name
 	dir    string
@@ -28,6 +29,12 @@ var cmd = &cobra.Command{
 }
 
 func NewCmd(cfg config.Config) *cobra.Command {
+	var err error
+	client, err = gcs.NewClient(context.Background(), cfg.GCS)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	cmd.PersistentFlags().StringVarP(&bucket, "bucket", "b", "", "GCS bucket name")
 	cmd.PersistentFlags().StringVar(&dir, "dir", "", "file directory")
 	cmd.MarkPersistentFlagRequired("bucket")
@@ -42,8 +49,9 @@ func runE(cmd *cobra.Command, args []string) error {
 		return err
 	}
 
+	fmt.Printf("result:\n")
 	for i, v := range result {
-		fmt.Printf("🐶🐶[DEBUG]🐶🐶 file-%d: %+v\n", i, v)
+		fmt.Printf("%d. %+v\n", i, v)
 	}
 
 	return nil
@@ -51,12 +59,6 @@ func runE(cmd *cobra.Command, args []string) error {
 
 func GetObjectNames(ctx context.Context, bucket, directory string) ([]string, error) {
 	result := []string{}
-
-	opts := []option.ClientOption{option.WithCredentialsFile(getConfigFile())}
-	client, err := storage.NewClient(ctx, opts...)
-	if err != nil {
-		return result, err
-	}
 
 	objs := client.Bucket(bucket).Objects(ctx, &storage.Query{Prefix: directory})
 	for {
@@ -70,10 +72,4 @@ func GetObjectNames(ctx context.Context, bucket, directory string) ([]string, er
 		result = append(result, obj.Name)
 	}
 	return result, nil
-}
-
-func getConfigFile() string {
-	_, filename, _, _ := runtime.Caller(0)
-	return path.Join(path.Dir(filename), "..", "..", "..", "config", "xwork-dev-5e7544287095.json")
-	// return path.Join(path.Dir(filename), "..", "..", "..", "config", "tk-dev-micro-71a89e645c42.json")
 }

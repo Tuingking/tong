@@ -1,0 +1,40 @@
+package main
+
+import (
+	"{{.packageName}}/app/api"
+	"{{.packageName}}/config"
+	"{{.packageName}}/pkg/logger"
+)
+
+// @title           GoTong API
+// @version         1.0
+// @description     This is swagger for GoTong API.
+// @termsOfService  http://swagger.io/terms/
+
+// @contact.name   Aloysius Yoko
+// @contact.email  aloysiusyoko@gmail.com
+
+// @host      localhost:8080
+// @BasePath  /
+
+// @securityDefinitions.basic  BasicAuth
+var (
+	API   api.Server
+)
+
+func init() {
+	// config
+	cfg := config.Init()
+
+	// init logger
+	logger.Init(cfg.Logger)
+
+	// TODO: domain
+
+	// app
+	API = api.NewServer(cfg.Api)
+}
+
+func main() {
+	API.Start()
+}

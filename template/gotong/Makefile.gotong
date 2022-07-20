@@ -1,0 +1,11 @@
+NAMESPACE = `echo {{.appName}}`
+
+swag:
+	@swag init --parseDependency --parseInternal --parseDepth 1  -g main.go
+
+build: swag
+	@echo "${NOW} == Building HTTP Server"
+	@go build -race -o ./bin/${NAMESPACE} main.go 
+
+run: build 
+	@./bin/${NAMESPACE}

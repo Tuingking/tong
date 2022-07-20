@@ -1,5 +1,5 @@
 version: "v0.0.1"
-env: "prod"
+env: "dev"
 kafka:
   zookeeperconfigfile: "$HOME/kafka/config/zookeeper.properties"
   brokerconfigfile: "$HOME/kafka/config/server.properties"
@@ -8,3 +8,5 @@ mysql:
   password: "password"
   hostport: "localhost:3306"
   dbname: ""
+gcs:
+  credentialfile: "config/xwork-dev-5e7544287095.json"

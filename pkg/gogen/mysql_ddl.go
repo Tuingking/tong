@@ -8,10 +8,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Tuingking/tong/pkg/gofparser"
 	"github.com/iancoleman/strcase"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
+	"github.com/tuingking/tong/pkg/gofparser"
 )
 
 var GoToMysqlTypeMap = map[string]string{

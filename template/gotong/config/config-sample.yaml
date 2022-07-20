@@ -1,0 +1,4 @@
+api:
+  address: ":8080"
+  readtimeout: "60s"
+  writetimeout: "60s"

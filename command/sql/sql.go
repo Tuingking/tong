@@ -1,11 +1,11 @@
 package sql
 
 import (
-	"github.com/Tuingking/tong/command/sql/ddl"
-	findfield "github.com/Tuingking/tong/command/sql/find-field"
-	"github.com/Tuingking/tong/command/sql/migrate"
-	"github.com/Tuingking/tong/config"
 	"github.com/spf13/cobra"
+	"github.com/tuingking/tong/command/sql/ddl"
+	findfield "github.com/tuingking/tong/command/sql/find-field"
+	"github.com/tuingking/tong/command/sql/migrate"
+	"github.com/tuingking/tong/config"
 )
 
 var cmd = &cobra.Command{

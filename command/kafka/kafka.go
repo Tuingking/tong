@@ -8,9 +8,9 @@ import (
 	"os/exec"
 	"time"
 
-	"github.com/Tuingking/tong/config"
 	"github.com/briandowns/spinner"
 	"github.com/spf13/cobra"
+	"github.com/tuingking/tong/config"
 )
 
 var (

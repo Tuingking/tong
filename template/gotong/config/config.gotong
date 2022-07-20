@@ -1,0 +1,72 @@
+package config
+
+import (
+	"log"
+
+	"github.com/spf13/viper"
+	"{{.packageName}}/app/api"
+	"{{.packageName}}/pkg/logger"
+	"go.uber.org/zap"
+)
+
+type Config struct {
+	Logger    logger.Option
+	Api       api.Option
+}
+
+type option struct {
+	configName string
+	configPath string
+	configType string
+}
+
+type Option func(*option)
+
+func Init(opts ...Option) Config {
+	var cfg Config
+
+	opt := &option{
+		configPath: "./config/",
+		configName: "config",
+		configType: "yaml",
+	}
+
+	for _, fn := range opts {
+		fn(opt)
+	}
+
+	v := viper.New()
+	v.AddConfigPath(opt.configPath)
+	v.SetConfigName(opt.configName)
+	v.SetConfigType(opt.configType)
+
+	if err := v.ReadInConfig(); err != nil {
+		logger.Logger.Fatal("failed read config file", zap.Error(err))
+	}
+
+	if err := v.Unmarshal(&cfg); err != nil {
+		logger.Logger.Fatal("failed unmarshal config", zap.Error(err))
+	}
+
+	log.Printf("CONFIG: %s%s.%s", opt.configPath, opt.configName, opt.configType)
+
+	return cfg
+}
+
+func WithConfigName(configName string) Option {
+	return func(o *option) {
+		o.configName = configName
+	}
+}
+
+func WithConfigPath(configPath string) Option {
+	return func(o *option) {
+		o.configPath = configPath
+	}
+}
+
+func WithConfigType(configType string) Option {
+	return func(o *option) {
+		o.configType = configType
+	}
+}

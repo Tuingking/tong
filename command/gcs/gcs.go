@@ -1,10 +1,11 @@
 package gcs
 
 import (
-	"github.com/Tuingking/tong/command/gcs/list"
-	"github.com/Tuingking/tong/command/gcs/upload"
-	"github.com/Tuingking/tong/config"
 	"github.com/spf13/cobra"
+	"github.com/tuingking/tong/command/gcs/delete"
+	"github.com/tuingking/tong/command/gcs/list"
+	"github.com/tuingking/tong/command/gcs/upload"
+	"github.com/tuingking/tong/config"
 )
 
 var cmd = &cobra.Command{
@@ -17,6 +18,7 @@ var cmd = &cobra.Command{
 func NewCmd(cfg config.Config) *cobra.Command {
 	cmd.AddCommand(upload.NewCmd(cfg))
 	cmd.AddCommand(list.NewCmd(cfg))
+	cmd.AddCommand(delete.NewCmd(cfg))
 
 	return cmd
 }

@@ -7,9 +7,9 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/Tuingking/tong/config"
-	"github.com/Tuingking/tong/pkg/logger"
 	"github.com/spf13/cobra"
+	"github.com/tuingking/tong/config"
+	"github.com/tuingking/tong/pkg/logger"
 	"go.uber.org/zap"
 )
 

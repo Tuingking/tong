@@ -3,8 +3,9 @@ package version
 import (
 	"fmt"
 
-	"github.com/Tuingking/tong/config"
 	"github.com/spf13/cobra"
+	"github.com/tuingking/tong/config"
+	"github.com/tuingking/tong/utils"
 )
 
 var ver string
@@ -24,6 +25,8 @@ func run(cmd *cobra.Command, args []string) {
 }
 
 func NewCmd(cfg config.Config) *cobra.Command {
-	ver = cfg.Version
+	// ver = cfg.Version
+	ver = utils.GetLatestGitTag()
+
 	return cmd
 }

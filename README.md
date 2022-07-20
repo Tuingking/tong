@@ -8,7 +8,7 @@ Tong is a command-line tool facilitating development of gotong-based application
 ## Installation
 
 ```sh
-go install github.com/Tuingking/tong@latest
+go install github.com/tuingking/tong@latest
 ```
 
 ## Basic commands
@@ -25,6 +25,7 @@ Tong provides a variety of commands which can be helpful at various stages of de
     # gcs
     list        Get list of files in GCS bucket
     upload      Upload file to GCS
+    delete      Delete file in GCS
 
     # sql
     migrate     Runs database migrations

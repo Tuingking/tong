@@ -1,9 +1,10 @@
 package config
 
 import (
-	"github.com/Tuingking/tong/pkg/kafka"
-	"github.com/Tuingking/tong/pkg/mysql"
 	"github.com/spf13/viper"
+	"github.com/tuingking/tong/pkg/gcs"
+	"github.com/tuingking/tong/pkg/kafka"
+	"github.com/tuingking/tong/pkg/mysql"
 )
 
 type Config struct {
@@ -11,6 +12,7 @@ type Config struct {
 	Env     string
 	Mysql   mysql.Option
 	Kafka   kafka.Option
+	GCS     gcs.Option
 }
 
 type option struct {
@@ -46,7 +48,7 @@ func Init() Config {
 		panic(err)
 	}
 
-	// log.Printf("[config] config used: %+v\n", vip.ConfigFileUsed())
+	// log.Printf("[config] config used: %v\n", vip.ConfigFileUsed())
 
 	return config
 }

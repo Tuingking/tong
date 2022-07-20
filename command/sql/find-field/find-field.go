@@ -3,9 +3,9 @@ package findfield
 import (
 	"fmt"
 
-	"github.com/Tuingking/tong/pkg/logger"
-	"github.com/Tuingking/tong/pkg/mysql"
 	"github.com/spf13/cobra"
+	"github.com/tuingking/tong/pkg/logger"
+	"github.com/tuingking/tong/pkg/mysql"
 	"go.uber.org/zap"
 )
 

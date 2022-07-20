@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Tuingking/tong/pkg/gogen"
-	"github.com/Tuingking/tong/pkg/logger"
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
+	"github.com/tuingking/tong/pkg/gogen"
+	"github.com/tuingking/tong/pkg/logger"
 	"go.uber.org/zap"
 )
 

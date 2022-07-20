@@ -1,11 +1,10 @@
 package utils
 
 import (
-	"fmt"
 	"os/exec"
 	"strings"
 
-	"github.com/Tuingking/tong/pkg/logger"
+	"github.com/tuingking/tong/pkg/logger"
 	"go.uber.org/zap"
 )
 
@@ -15,7 +14,7 @@ func GetLatestGitTag() string {
 		query  = "describe --tags --abbrev=0"
 	)
 
-	fmt.Println("command: git", query)
+	// fmt.Println("command: git", query)
 
 	cmd := exec.Command("git", strings.Split(query, " ")...)
 	cmd.Stdout = stdout
